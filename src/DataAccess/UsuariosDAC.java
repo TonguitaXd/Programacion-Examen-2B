@@ -23,21 +23,4 @@ public class UsuariosDAC extends SQLiteDataHelper {
         }
     }
 
-    /* 
-    public ResultSet getUsuariosById(int IdUsuarios) throws AppException{
-        try {
-            String sql ="SELECT AM_ID_USUARIOS, AM_USUARIOS, AM_CONTRASENA_ENCRIPTADA  "+
-                        "FROM   USUARIOS "+
-                        "WHERE  AM_ID_USUARIOS = 1 ";
-                        
-            Connection conn = getConnection();
-            PreparedStatement pstmt  = conn.prepareStatement(sql);
-            pstmt.setInt(1, IdUsuarios);
-            return pstmt.executeQuery();
-        } 
-        catch (SQLException e) {
-            throw new AppException(e, getClass(), "getUsuariosById()");
-        }
-    }
-    */
 }

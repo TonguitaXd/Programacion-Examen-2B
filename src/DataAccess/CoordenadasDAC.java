@@ -14,11 +14,11 @@ public class CoordenadasDAC extends SQLiteDataHelper{
 
     public ResultSet getAllCoordenadas() throws AppException{
         try {
-            String sql = "SELECT AM_CAPACIDAD,AM_GEO, AM_ARSENAL FROM PERSONA";
+            String sql = "SELECT AM_CAPACIDAD,AM_GEO, AM_ARSENAL, AM_FECHA_HACK FROM COORDENADAS";
             return getResultSet(sql);
         } 
         catch (SQLException e) {
-            throw new AppException(e, getClass(), "getAllPet()");
+            throw new AppException(e, getClass(), "getAllCoordenadas()");
         }
     }
 }
