@@ -7,11 +7,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LectorCoordenadas extends  JFrame{
+public class CoordenadasGUI extends  JFrame{
     private JLabel amUserLabel;
     private JButton amButton;
 
-    public LectorCoordenadas() {
+    public CoordenadasGUI() {
         // Configurar la ventana
         setTitle("Lector");
         setSize(400, 200);

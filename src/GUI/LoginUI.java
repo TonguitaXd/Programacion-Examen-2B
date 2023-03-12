@@ -1,12 +1,14 @@
 package GUI;
 import javax.swing.*;
 
-import BusinessLogic.EncriptadorMD5;
+//import BusinessLogic.EncriptadorMD5;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Framework.AppException;
+import Framework.Login;
 
 public class LoginUI extends JFrame {
 
@@ -19,6 +21,8 @@ public class LoginUI extends JFrame {
     private JButton amButton;
     private int amLoginAttempts = 0;
     private final int AM_MAXIMO_INTENTOS = 3;
+    private boolean amInicioExitoso = false;
+    Login amLogin = new Login();
 
     public LoginUI() {
         // Configurar la ventana
@@ -63,21 +67,26 @@ public class LoginUI extends JFrame {
     private void login1() {
         String amUsuario = amUsuarioField.getText();
         String amPassword = new String(amPasswordField.getPassword());
-        String amEncryptedPassword = EncriptadorMD5.amEncryptMD5(amPassword); // Encriptar la contraseña ingresada
-    
+        //String amEncryptedPassword = EncriptadorMD5.amEncryptMD5(amPassword); // Encriptar la contraseña ingresada
+        
+        try {
+            amInicioExitoso = amLogin.amValidacionIngreso(amUsuario, amPassword); 
+        } catch (AppException e1) {
+            e1.printStackTrace();
+        }
+
         // Verificar las credenciales en una fuente de datos
-        if ((amUsuario.equals("anthony.morales03@epn.edu.ec") && amEncryptedPassword.equals("4086706df943bb1226ecee27c687f995")) ||
-                (amUsuario.equals("profe") && amEncryptedPassword.equals("81dc9bdb52d04dc20036dbd8313ed055"))) {
+        if (amInicioExitoso) {
             JOptionPane.showMessageDialog(this, "Inicio exitoso");
-            dispose();
-            new LectorCoordenadas(); // cerrar la ventana
+            dispose();// cerrar la ventana
+            new CoordenadasGUI(); 
             
         } else {
             amLoginAttempts++;
             if (amLoginAttempts == AM_MAXIMO_INTENTOS) {
                 JOptionPane.showMessageDialog(this, "Se agotaron sus intentos");
                 dispose(); // cerrar la ventana
-                new LectorCoordenadas();
+                new CoordenadasGUI();
             } else {
                 JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
             }
