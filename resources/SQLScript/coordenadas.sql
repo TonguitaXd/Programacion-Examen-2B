@@ -68,9 +68,9 @@ SELECT * FROM COORDENADAS;
     INSERT INTO USUARIOS    (AM_ID_USUARIOS,AM_USUARIOS, AM_CONTRASENA_ENCRIPTADA)
                     VALUES  (1,'profe', '81dc9bdb52d04dc20036dbd8313ed055');
     INSERT INTO USUARIOS    (AM_ID_USUARIOS,AM_USUARIOS, AM_CONTRASENA_ENCRIPTADA)
-                    VALUES  (1,'anthony.morales03@epn.edu.ec', '4086706df943bb1226ecee27c687f995'); 
+                    VALUES  (2,'anthony.morales03@epn.edu.ec', '4086706df943bb1226ecee27c687f995'); 
     INSERT INTO USUARIOS    (AM_ID_USUARIOS,AM_USUARIOS, AM_CONTRASENA_ENCRIPTADA)
-                    VALUES  (1,'estudiante.politecnico@epn.edu.ec', 'daf456a7ca6e8a951571fce068f80ffc'); 
+                    VALUES  (3,'estudiante.politecnico@epn.edu.ec', 'daf456a7ca6e8a951571fce068f80ffc'); 
     
 -----------------------------------------------------------------------------------------
 SELECT * FROM USUARIOS;
